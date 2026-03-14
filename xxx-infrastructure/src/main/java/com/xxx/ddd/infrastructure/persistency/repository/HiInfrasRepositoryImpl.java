@@ -7,6 +7,6 @@ import org.springframework.stereotype.Service;
 public class HiInfrasRepositoryImpl implements HiDomainRepository {
     @Override
     public String sayHi(String who) {
-        return "Hi Infrastructure";
+        return "Hi Infrastructure " + who;
     }
 }

@@ -1,4 +1,4 @@
-package com.xxx.ddd.infrastucture;
+package com.xxx;
 
 
 import org.springframework.boot.SpringApplication;
