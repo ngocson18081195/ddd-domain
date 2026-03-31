@@ -2,6 +2,7 @@ package com.xxx.ddd.infrastructure.cache.redis;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +14,10 @@ import java.util.Map;
 import java.util.Optional;
 
 @Component
-public class RedisInfraServiceImpl implements RedisInfraService {
+public class RedisInfrasServiceImpl implements RedisInfrasService {
 
-    private static final Logger log = LoggerFactory.getLogger(RedisInfraServiceImpl.class);
-    @Autowired
+    private static final Logger log = LoggerFactory.getLogger(RedisInfrasServiceImpl.class);
+    @Resource
     private RedisTemplate<String, Object> redisTemplate;
 
     @Override

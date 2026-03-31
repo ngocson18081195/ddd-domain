@@ -1,4 +1,4 @@
-package com.xxxx.ddd.controller.model.vo;
+package com.xxx.ddd.controller.model.vo;
 
 import lombok.Data;
 

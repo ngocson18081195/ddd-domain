@@ -1,6 +1,6 @@
-package com.xxxx.ddd.domain.service;
+package com.xxx.ddd.domain.service;
 
-import com.xxxx.ddd.domain.model.entity.TicketDetail;
+import com.xxx.ddd.domain.model.entity.TicketDetail;
 
 public interface TicketDetailDomainService {
 

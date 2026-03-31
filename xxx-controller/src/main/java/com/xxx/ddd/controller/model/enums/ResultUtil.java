@@ -1,5 +1,6 @@
-package com.xxx.ddd.controller.model;
+package com.xxx.ddd.controller.model.enums;
 
+import com.xxx.ddd.controller.model.ResultCode;
 import com.xxx.ddd.controller.model.vo.ResultMessage;
 
 /**

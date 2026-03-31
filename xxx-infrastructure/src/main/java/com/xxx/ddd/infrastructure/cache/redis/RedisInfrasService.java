@@ -1,6 +1,6 @@
 package com.xxx.ddd.infrastructure.cache.redis;
 
-public interface RedisInfraService {
+public interface RedisInfrasService {
     void setString(String key, String value);
     String getString(String key);
     void setObject(String key, Object value);

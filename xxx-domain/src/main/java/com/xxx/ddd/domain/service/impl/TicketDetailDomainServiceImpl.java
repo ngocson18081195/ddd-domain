@@ -1,8 +1,8 @@
-package com.xxxx.ddd.domain.service.impl;
+package com.xxx.ddd.domain.service.impl;
 
-import com.xxxx.ddd.domain.model.entity.TicketDetail;
-import com.xxxx.ddd.domain.respository.TicketDetailRepository;
-import com.xxxx.ddd.domain.service.TicketDetailDomainService;
+import com.xxx.ddd.domain.model.entity.TicketDetail;
+import com.xxx.ddd.domain.repository.TicketDetailRepository;
+import com.xxx.ddd.domain.service.TicketDetailDomainService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
