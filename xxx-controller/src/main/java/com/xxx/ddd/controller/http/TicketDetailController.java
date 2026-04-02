@@ -1,15 +1,13 @@
 package com.xxx.ddd.controller.http;
 
+import com.xxx.ddd.application.service.model.TicketDetailDTO;
 import com.xxx.ddd.application.service.ticket.TicketDetailAppService;
 import com.xxx.ddd.controller.model.enums.ResultUtil;
 import com.xxx.ddd.controller.model.vo.ResultMessage;
 import com.xxx.ddd.domain.model.entity.TicketDetail;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/ticket")
@@ -21,12 +19,20 @@ public class TicketDetailController {
     private TicketDetailAppService ticketDetailAppService;
 
     @GetMapping("/{ticketId}/detail/{detailId}")
-    public ResultMessage<TicketDetail> getTicketDetail(
+    public ResultMessage<TicketDetailDTO> getTicketDetail(
+            @PathVariable("ticketId") Long ticketId,
+            @PathVariable("detailId") Long detailId,
+            @RequestParam(name = "version", required = false) Long version
+    ) {
+        return ResultUtil.data(ticketDetailAppService.getTicketDetailById(detailId, version));
+    }
+
+    @GetMapping("/{ticketId}/detail/{detailId}")
+    public boolean orderTicketByUser(
             @PathVariable("ticketId") Long ticketId,
             @PathVariable("detailId") Long detailId
     ) {
-        log.info("MEMBER TIPS GO");
-        log.info(" ticketId:{}, detailId:{}", ticketId, detailId);
-        return ResultUtil.data(ticketDetailAppService.getTicketDetailById(detailId));
+        return ticketDetailAppService.orderTicketByUser(ticketId);
     }
+
 }

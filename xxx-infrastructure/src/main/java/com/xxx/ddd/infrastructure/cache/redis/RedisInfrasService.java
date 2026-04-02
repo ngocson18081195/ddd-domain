@@ -5,4 +5,7 @@ public interface RedisInfrasService {
     String getString(String key);
     void setObject(String key, Object value);
     <T> T getObject(String key, Class<T> targetClass);
+
+    //delete redis by key
+    void delete(String key);
 }
