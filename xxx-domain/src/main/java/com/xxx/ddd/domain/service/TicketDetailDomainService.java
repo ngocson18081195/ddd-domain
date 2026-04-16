@@ -5,4 +5,6 @@ import com.xxx.ddd.domain.model.entity.TicketDetail;
 public interface TicketDetailDomainService {
 
     TicketDetail getTicketDetailById(Long ticketId);
+
+    int getStockAvailable(Long ticketId);
 }

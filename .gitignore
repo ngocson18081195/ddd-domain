@@ -14,7 +14,7 @@ target/
 *.ipr
 
 environment/data/
-environment/grafana-storage/plugins
+environment/grafana-storage/plugins/
 
 ### Eclipse ###
 .apt_generated

@@ -18,6 +18,23 @@ public class TicketDetailController {
     @Autowired
     private TicketDetailAppService ticketDetailAppService;
 
+    @GetMapping("/{ticketId}/{quantity}/cas")
+    public boolean getTicketByLevel3(
+            @PathVariable("ticketId") Long ticketId,
+            @PathVariable("quantity") int quantity
+    ) {
+        return ticketDetailAppService.decreaseStockLevel3(ticketId, quantity);
+
+    }
+
+    @GetMapping("/{ticketId}/{quantity}/order")
+    public boolean getTicketByLevel(
+            @PathVariable("ticketId") Long ticketId,
+            @PathVariable("quantity") int quantity
+    ) {
+        return ticketDetailAppService.decreaseStockLevel(ticketId, quantity);
+    }
+
     @GetMapping("/{ticketId}/detail/{detailId}")
     public ResultMessage<TicketDetailDTO> getTicketDetail(
             @PathVariable("ticketId") Long ticketId,
@@ -27,7 +44,7 @@ public class TicketDetailController {
         return ResultUtil.data(ticketDetailAppService.getTicketDetailById(detailId, version));
     }
 
-    @GetMapping("/{ticketId}/detail/{detailId}")
+    @GetMapping("/order/detail/{detailId}")
     public boolean orderTicketByUser(
             @PathVariable("ticketId") Long ticketId,
             @PathVariable("detailId") Long detailId

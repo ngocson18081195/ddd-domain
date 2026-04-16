@@ -184,11 +184,29 @@ public class TicketDetailCacheService {
     public TicketDetailCache getTicketDefaultCacheLocal(Long ticketId, Long version) {
         log.info("Implement getTicketDefaultCacheVip->, {}, {} ", ticketId, version);
         // 1 Get ticket Item
-        TicketDetailCache ticketDetail = getTicketDetailLocalCache(ticketId);
+        TicketDetailCache ticketDetailCache = getTicketDetailLocalCache(ticketId);
         // Use:version, cache:version
-        if (ticketDetail != null) {
-            log.info("FROM LOCAL CACHE EXIST {}",ticketDetail);
-            return ticketDetail;
+        if (ticketDetailCache != null) {
+            if (version == null) {
+                log.info("01: GET TICKET FROM LOCAL CACHE: versionUser {}, versionLocal {}", version, ticketDetailCache.getVersion());
+                return  ticketDetailCache;
+            }
+
+            if (version.equals(ticketDetailCache.getVersion())) {
+                log.info("02: GET TICKET FROM LOCAL CACHE: versionUser {}, versionLocal {}", version, ticketDetailCache.getVersion());
+                return  ticketDetailCache;
+            }
+
+            if (version < ticketDetailCache.getVersion()) {
+                log.info("03: GET TICKET FROM LOCAL CACHE: versionUser {}, versionLocal {}", version, ticketDetailCache.getVersion());
+                return  ticketDetailCache;
+            }
+
+            if (version > ticketDetailCache.getVersion()) {
+                return  getTicketDetailDistributedCache(ticketId, version);
+            }
+
+            return ticketDetailCache;
         }
 
         return getTicketDetailDatabase(ticketId);

@@ -21,6 +21,14 @@ public class RedisInfrasServiceImpl implements RedisInfrasService {
     private RedisTemplate<String, Object> redisTemplate;
 
     @Override
+    public void setInt(String key, int value) {
+        if (!StringUtils.hasLength(key)) {
+            return;
+        }
+        redisTemplate.opsForValue().set(key, value);
+    }
+
+    @Override
     public void setString(String key, String value) {
         if (StringUtils.hasLength(key)) {
             return;
@@ -66,5 +74,15 @@ public class RedisInfrasServiceImpl implements RedisInfrasService {
     @Override
     public void delete(String key) {
         redisTemplate.delete(key);
+    }
+
+    @Override
+    public Integer getInt(String key) {
+        return Optional.ofNullable(redisTemplate.opsForValue().get(key)).map(o -> Integer.valueOf(o.toString())).orElse(0);
+    }
+
+    @Override
+    public RedisTemplate<String, Object> getRedisTemplate() {
+        return redisTemplate;
     }
 }

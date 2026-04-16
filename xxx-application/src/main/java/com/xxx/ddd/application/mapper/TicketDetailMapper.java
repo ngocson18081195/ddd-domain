@@ -1,4 +1,4 @@
-package com.xxx.ddd.application.service.mapper;
+package com.xxx.ddd.application.mapper;
 
 import com.xxx.ddd.application.service.model.TicketDetailDTO;
 import com.xxx.ddd.domain.model.entity.TicketDetail;

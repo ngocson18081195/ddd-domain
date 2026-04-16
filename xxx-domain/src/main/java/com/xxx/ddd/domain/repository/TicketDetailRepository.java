@@ -4,8 +4,6 @@ import com.xxx.ddd.domain.model.entity.TicketDetail;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Repository
 public interface TicketDetailRepository extends JpaRepository<TicketDetail, Long> {
 //    Optional<TicketDetail> findById(Long id);
